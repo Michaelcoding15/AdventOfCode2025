@@ -44,8 +44,8 @@ impl Dial {
         }
     }
 
-    fn new() -> Self {
-        Dial {
+    const fn new() -> Self {
+        Self {
             num: 50,
             zero_count: 0,
         }
@@ -62,5 +62,5 @@ pub fn run() {
             _ => panic!("Unknown direction"),
         }
     }
-    println!("Answer: {}", dial.zero_count)
+    println!("Answer: {}", dial.zero_count);
 }

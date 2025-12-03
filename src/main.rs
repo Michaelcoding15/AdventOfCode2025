@@ -1,8 +1,8 @@
+#[warn(clippy::pedantic)]
+#[warn(clippy::nursery)]
 #[allow(dead_code)]
 mod days;
 
-
-
 fn main() {
-	days::two::part2::run();
+    days::three::part2::run();
 }

@@ -6,7 +6,7 @@ fn read_input() -> Vec<(i64, i64)> {
         .split(',')
         .map(|v| {
             let vals = v
-                .split("-")
+                .split('-')
                 .map(|v| v.parse::<i64>().expect("Not a number"))
                 .collect::<Vec<i64>>();
             (vals[0], vals[1])
@@ -15,6 +15,8 @@ fn read_input() -> Vec<(i64, i64)> {
 }
 
 fn get_factors(num: i64) -> Vec<i64> {
+    #[allow(clippy::cast_possible_wrap)]
+    // Will not get to size for a overflow
     let length = num.to_string().len() as i64;
     let mut factors = vec![1];
     for i in 2..=length.isqrt() {
@@ -25,7 +27,7 @@ fn get_factors(num: i64) -> Vec<i64> {
             }
         }
     }
-    factors.sort();
+    factors.sort_unstable();
     factors
 }
 
